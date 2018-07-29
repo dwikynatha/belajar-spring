@@ -1,6 +1,7 @@
 package com.belajar.spring.belajarspring.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by sukenda on 29/07/18.
@@ -11,6 +12,7 @@ public class Student implements Serializable {
     private int id;
     private String name;
     private String address;
+    private List<MataKuliah> mataKuliahs;
 
     public Student() {
     }

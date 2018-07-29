@@ -1,6 +1,7 @@
 package com.belajar.spring.belajarspring.dao.impl;
 
 import com.belajar.spring.belajarspring.dao.StudentDAO;
+import com.belajar.spring.belajarspring.entity.MataKuliah;
 import com.belajar.spring.belajarspring.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -57,6 +58,11 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student findById(int id) {
+        return null;
+    }
+
+    @Override
+    public List<MataKuliah> findMataKuloahByStudent(int id) {
         return null;
     }
 }
