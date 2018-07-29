@@ -20,21 +20,21 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-    private StudentService studentService;
+    private StudentDAO studentDAO;
 
     @GetMapping(value = "/students")
     public List<Student> students() {
-        return studentService.find();
+        return studentDAO.find();
     }
 
-    /*@PostMapping(value = "/students")
+    @PostMapping(value = "/students")
     public String save(@RequestBody Student student) {
-        Student data = studentService.save(student);
+        Student data = studentDAO.save(student);
         if (data.getId() == 0) {
             return "Gagal insert data";
         } else {
             return "Insert data berhasil";
         }
-    }*/
+    }
 
 }
