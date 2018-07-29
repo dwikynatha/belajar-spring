@@ -13,6 +13,6 @@ import java.util.List;
  */
 public interface StudentDAO extends BaseDAO<Student> {
 
-    List<MataKuliah> findMataKuloahByStudent(int id);
+    List<MataKuliah> findMataKuliahByStudent(int id);
 
 }

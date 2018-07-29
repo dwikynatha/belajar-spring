@@ -62,7 +62,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public List<MataKuliah> findMataKuloahByStudent(int id) {
+    public List<MataKuliah> findMataKuliahByStudent(int id) {
         return null;
     }
 }
