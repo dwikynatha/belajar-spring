@@ -1,4 +1,4 @@
-package com.belajar.spring.belajarspring.entity;
+package com.belajar.spring.entity;
 
 /**
  * Created by sukenda on 29/07/18.

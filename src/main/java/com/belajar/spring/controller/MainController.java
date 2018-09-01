@@ -1,11 +1,6 @@
-package com.belajar.spring.belajarspring.controller;
+package com.belajar.spring.controller;
 
-import com.belajar.spring.belajarspring.dao.StudentDAO;
-import com.belajar.spring.belajarspring.entity.Student;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * Created by sukenda on 29/07/18.

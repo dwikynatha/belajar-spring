@@ -1,4 +1,4 @@
-package com.belajar.spring.belajarspring;
+package com.belajar.spring;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

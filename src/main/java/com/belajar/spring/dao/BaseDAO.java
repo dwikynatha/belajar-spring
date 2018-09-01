@@ -1,4 +1,4 @@
-package com.belajar.spring.belajarspring.dao;
+package com.belajar.spring.dao;
 
 import java.util.List;
 

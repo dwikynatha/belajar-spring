@@ -1,8 +1,8 @@
-package com.belajar.spring.belajarspring.dao.impl;
+package com.belajar.spring.dao.impl;
 
-import com.belajar.spring.belajarspring.dao.StudentDAO;
-import com.belajar.spring.belajarspring.entity.MataKuliah;
-import com.belajar.spring.belajarspring.entity.Student;
+import com.belajar.spring.dao.StudentDAO;
+import com.belajar.spring.entity.MataKuliah;
+import com.belajar.spring.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

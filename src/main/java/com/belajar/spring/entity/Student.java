@@ -1,4 +1,4 @@
-package com.belajar.spring.belajarspring.entity;
+package com.belajar.spring.entity;
 
 import java.io.Serializable;
 import java.util.List;

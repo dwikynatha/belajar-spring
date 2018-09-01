@@ -1,8 +1,7 @@
-package com.belajar.spring.belajarspring.controller;
+package com.belajar.spring.controller;
 
-import com.belajar.spring.belajarspring.dao.StudentDAO;
-import com.belajar.spring.belajarspring.entity.Student;
-import com.belajar.spring.belajarspring.service.StudentService;
+import com.belajar.spring.dao.StudentDAO;
+import com.belajar.spring.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

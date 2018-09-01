@@ -1,8 +1,7 @@
-package com.belajar.spring.belajarspring.service;
+package com.belajar.spring.service;
 
-import com.belajar.spring.belajarspring.dao.StudentDAO;
-import com.belajar.spring.belajarspring.dao.impl.StudentDAOImpl;
-import com.belajar.spring.belajarspring.entity.Student;
+import com.belajar.spring.dao.StudentDAO;
+import com.belajar.spring.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
