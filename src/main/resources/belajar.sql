@@ -11,11 +11,28 @@
  Target Server Version : 100213
  File Encoding         : 65001
 
- Date: 01/09/2018 11:21:46
+ Date: 04/09/2018 13:10:13
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for mata_kuliah
+-- ----------------------------
+DROP TABLE IF EXISTS `mata_kuliah`;
+CREATE TABLE `mata_kuliah` (
+  `id` int(11) DEFAULT NULL,
+  `nama` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mata_kuliah
+-- ----------------------------
+BEGIN;
+INSERT INTO `mata_kuliah` VALUES (1, 'Bahasa');
+INSERT INTO `mata_kuliah` VALUES (2, 'MTK');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for table_profile
@@ -36,8 +53,17 @@ CREATE TABLE `table_profile` (
 DROP TABLE IF EXISTS `table_student_matakuliah`;
 CREATE TABLE `table_student_matakuliah` (
   `id` int(11) DEFAULT NULL,
-  `id_student` int(11) DEFAULT NULL
+  `id_student` int(11) DEFAULT NULL,
+  `id_mata_kuliah` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of table_student_matakuliah
+-- ----------------------------
+BEGIN;
+INSERT INTO `table_student_matakuliah` VALUES (1, 1, 1);
+INSERT INTO `table_student_matakuliah` VALUES (2, 1, 2);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for table_students

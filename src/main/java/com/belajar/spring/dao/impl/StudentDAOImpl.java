@@ -63,6 +63,10 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public List<MataKuliah> findMataKuliahByStudent(int id) {
+        String sql = "select * " +
+                "from mata_kuliah mata " +
+                "inner join table_student_matakuliah student on mata.id = student.id_mata_kuliah " +
+                "where student.id_student = "+id;
         return null;
     }
 }
