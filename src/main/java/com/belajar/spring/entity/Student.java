@@ -10,9 +10,10 @@ import java.util.List;
 public class Student implements Serializable {
 
     private int id;
+
     private String name;
+
     private String address;
-    private List<MataKuliah> mataKuliahs;
 
     public Student() {
     }

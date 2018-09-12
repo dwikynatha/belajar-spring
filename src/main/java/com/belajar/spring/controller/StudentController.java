@@ -1,7 +1,7 @@
 package com.belajar.spring.controller;
 
-import com.belajar.spring.dao.StudentDAO;
 import com.belajar.spring.entity.Student;
+import com.belajar.spring.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,16 +19,16 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-    private StudentDAO studentDAO;
+    private StudentService service;
 
     @GetMapping(value = "/students")
     public List<Student> students() {
-        return studentDAO.find();
+        return service.find();
     }
 
     @PostMapping(value = "/students")
     public String save(@RequestBody Student student) {
-        Student data = studentDAO.save(student);
+        Student data = service.save(student);
         if (data.getId() == 0) {
             return "Gagal insert data";
         } else {

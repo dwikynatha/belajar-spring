@@ -1,7 +1,7 @@
 package com.belajar.spring.dao.impl;
 
+import com.belajar.spring.common.Table;
 import com.belajar.spring.dao.StudentDAO;
-import com.belajar.spring.entity.MataKuliah;
 import com.belajar.spring.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by sukenda on 29/07/18.
@@ -27,7 +28,8 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student save(Student param) {
-        String sql = "INSERT INTO table_students (name, address) VALUES (?, ?)";
+        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (name, address) VALUES (?, ?)";
+
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -36,7 +38,7 @@ public class StudentDAOImpl implements StudentDAO {
             return ps;
         }, keyHolder);
 
-        param.setId(keyHolder.getKey().intValue());
+        param.setId(Objects.requireNonNull(keyHolder.getKey()).intValue());
         return param;
     }
 
@@ -52,7 +54,8 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public List<Student> find() {
-        String sql = "SELECT * FROM table_students";
+        String sql = "SELECT * FROM " + Table.TABLE_STUDENT;
+
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Student.class));
     }
 
@@ -61,12 +64,4 @@ public class StudentDAOImpl implements StudentDAO {
         return null;
     }
 
-    @Override
-    public List<MataKuliah> findMataKuliahByStudent(int id) {
-        String sql = "select * " +
-                "from mata_kuliah mata " +
-                "inner join table_student_matakuliah student on mata.id = student.id_mata_kuliah " +
-                "where student.id_student = "+id;
-        return null;
-    }
 }
