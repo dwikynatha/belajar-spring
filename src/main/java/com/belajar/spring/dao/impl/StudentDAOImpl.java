@@ -4,6 +4,7 @@ import com.belajar.spring.common.Table;
 import com.belajar.spring.dao.StudentDAO;
 import com.belajar.spring.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -44,12 +45,24 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student update(Student param) {
-        return null;
+        String sql = "UPDATE " + Table.TABLE_STUDENT + " SET " +
+                "name = ?, " +
+                "address = ? " +
+                "WHERE id =  ? ";
+
+        jdbcTemplate.update(sql,
+                param.getName(),
+                param.getAddress(),
+                param.getId());
+
+        return param;
     }
 
     @Override
     public int delete(Student param) {
-        return 0;
+        String sql = "DELETE FROM " + Table.TABLE_STUDENT + " WHERE id = ? ";
+
+        return jdbcTemplate.update(sql, param.getId());
     }
 
     @Override
@@ -61,6 +74,13 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student findById(int id) {
+        String sql = "SELECT * FROM " + Table.TABLE_STUDENT + " WHERE id = ? ";
+
+        try {
+            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
+        } catch (EmptyResultDataAccessException ignored) {
+        }
+
         return null;
     }
 
