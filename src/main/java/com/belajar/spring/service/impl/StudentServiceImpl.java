@@ -21,17 +21,17 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student save(Student param) {
-        return null;
+        return studentDAO.save(param);
     }
 
     @Override
     public Student update(Student param) {
-        return null;
+        return studentDAO.update(param);
     }
 
     @Override
     public int delete(Student param) {
-        return 0;
+        return studentDAO.delete(param);
     }
 
     @Override
@@ -41,6 +41,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student findById(int id) {
-        return null;
+        return studentDAO.findById(id);
     }
 }
