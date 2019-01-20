@@ -1,8 +1,8 @@
 package com.belajar.spring.dao.impl;
 
 import com.belajar.spring.common.Table;
-import com.belajar.spring.dao.StudentDAO;
-import com.belajar.spring.entity.Student;
+import com.belajar.spring.dao.MahasiswaDAO;
+import com.belajar.spring.entity.Mahasiswa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -16,20 +16,16 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by sukenda on 29/07/18.
- * Project belajar-spring
- */
 
 @Repository
-public class StudentDAOImpl implements StudentDAO {
+public class MahasiswaDAOImpl implements MahasiswaDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public Student save(Student param) {
-        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (name, address) VALUES (?, ?)";
+    public Mahasiswa save(Mahasiswa param) {
+        String sql = "INSERT INTO " + Table.TABLE_MAHASISWA + " (name, address) VALUES (?, ?)";
 
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
@@ -44,8 +40,8 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student update(Student param) {
-        String sql = "UPDATE " + Table.TABLE_STUDENT + " SET " +
+    public Mahasiswa update(Mahasiswa param) {
+        String sql = "UPDATE " + Table.TABLE_MAHASISWA + " SET " +
                 "name = ?, " +
                 "address = ? " +
                 "WHERE id =  ? ";
@@ -59,25 +55,25 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public int delete(Student param) {
-        String sql = "DELETE FROM " + Table.TABLE_STUDENT + " WHERE id = ? ";
+    public int delete(Mahasiswa param) {
+        String sql = "DELETE FROM " + Table.TABLE_MAHASISWA + " WHERE id = ? ";
 
         return jdbcTemplate.update(sql, param.getId());
     }
 
     @Override
-    public List<Student> find() {
-        String sql = "SELECT * FROM " + Table.TABLE_STUDENT;
+    public List<Mahasiswa> find() {
+        String sql = "SELECT * FROM " + Table.TABLE_MAHASISWA;
 
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Student.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Mahasiswa.class));
     }
 
     @Override
-    public Student findById(int id) {
-        String sql = "SELECT * FROM " + Table.TABLE_STUDENT + " WHERE id = ? ";
+    public Mahasiswa findById(int id) {
+        String sql = "SELECT * FROM " + Table.TABLE_MAHASISWA + " WHERE id = ? ";
 
         try {
-            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
+            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Mahasiswa.class), id);
         } catch (EmptyResultDataAccessException ignored) {
         }
 

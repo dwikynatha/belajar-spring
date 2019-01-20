@@ -32,6 +32,6 @@ CREATE TABLE `students` (
 -- Records of table_students
 -- ----------------------------
 BEGIN;
-INSERT INTO `students` VALUES (1, 'Student 1', 'Yogyakarta');
-INSERT INTO `students` VALUES (2, 'Student 2', 'Bantul');
+INSERT INTO `students` VALUES (1, 'Mahasiswa 1', 'Yogyakarta');
+INSERT INTO `students` VALUES (2, 'Mahasiswa 2', 'Bantul');
 COMMIT;

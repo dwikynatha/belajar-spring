@@ -7,7 +7,7 @@ import java.util.List;
  * Created by sukenda on 29/07/18.
  * Project belajar-spring
  */
-public class Student implements Serializable {
+public class Mahasiswa implements Serializable {
 
     private int id;
 
@@ -15,19 +15,19 @@ public class Student implements Serializable {
 
     private String address;
 
-    public Student() {
+    public Mahasiswa() {
     }
 
-    public Student(int id) {
+    public Mahasiswa(int id) {
         this.id = id;
     }
 
-    public Student(String name, String address) {
+    public Mahasiswa(String name, String address) {
         this.name = name;
         this.address = address;
     }
 
-    public Student(int id, String name, String address) {
+    public Mahasiswa(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -59,7 +59,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Mahasiswa{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
