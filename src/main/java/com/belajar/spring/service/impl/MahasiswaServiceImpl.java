@@ -1,5 +1,6 @@
 package com.belajar.spring.service.impl;
 
+import com.belajar.spring.dao.KRSDAO;
 import com.belajar.spring.dao.MahasiswaDAO;
 import com.belajar.spring.entity.Mahasiswa;
 import com.belajar.spring.service.MahasiswaService;
@@ -13,6 +14,9 @@ public class MahasiswaServiceImpl implements MahasiswaService {
 
     @Autowired
     private MahasiswaDAO mahasiswaDAO;
+
+    @Autowired
+    private KRSDAO krsdao;
 
     @Override
     public Mahasiswa save(Mahasiswa param) { return mahasiswaDAO.save(param); }
@@ -29,7 +33,12 @@ public class MahasiswaServiceImpl implements MahasiswaService {
 
     @Override
     public List<Mahasiswa> find() {
-        return mahasiswaDAO.find();
+        List<Mahasiswa> mahasiswas = mahasiswaDAO.find();
+        for (Mahasiswa data : mahasiswas){
+            data.setKrs(krsdao.findByMahasiswaId(data.getId()));
+        }
+
+        return mahasiswas;
     }
 
     @Override
