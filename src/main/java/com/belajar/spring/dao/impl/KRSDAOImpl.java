@@ -41,6 +41,7 @@ public class KRSDAOImpl implements KRSDAO {
         return null;
     }
 
+    //perbaiki seusai queri join table
     @Override
     public List<KRS> findByMahasiswaId(int id) {
         String sql = "SELECT * FROM " + Table.TABLE_KRS + " WHERE id_mahasiswa = " + id;
